@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <form ng-submit="getData()">
+        <div class="mb-3 mt-4">
+            <label for="delete" class="form-label">check if voted before or not</label>
+            <select class="form-select form-select-lg" ng-model="voted_before" id="" required ng-change="getData()">
+                <option selected disabled value="">Select one</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-center">
+            <input type="submit" value="search" class="btn btn-info" />
+        </div>
+        </form>
+        <section id="tableSection" class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-primary">
+                        <th scope="col">Vid</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Voted_before</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas">
+                        <td scope="row">{{data.vid}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.age}}</td>
+                        <td>{{data.gender}}</td>
+                        <td>{{data.voted_before}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>
